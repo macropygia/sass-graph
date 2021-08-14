@@ -31,8 +31,21 @@ function resolveSassPath(sassPath, loadPaths, extensions) {
 
     // special case for _partials
     for (j = 0; j < extensions.length; j++) {
-      scssPath = path.normalize(loadPaths[i] + '/' + sassPathName + '.' + extensions[j]);
-      partialPath = path.join(path.dirname(scssPath), '_' + path.basename(scssPath));
+      var sassPathAbs = path.join(loadPaths[i], sassPath);
+      if (
+        fs.existsSync(sassPathAbs) &&
+        fs.lstatSync(sassPathAbs).isDirectory()
+      ) {
+        partialPath = path.join(sassPathAbs, "_index." + extensions[j]);
+      } else {
+        scssPath = path.normalize(
+          loadPaths[i] + "/" + sassPathName + "." + extensions[j]
+        );
+        partialPath = path.join(
+          path.dirname(scssPath),
+          "_" + path.basename(scssPath)
+        );
+      }
       try {
         if (fs.lstatSync(partialPath).isFile()) {
           return partialPath;
