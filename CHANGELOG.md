@@ -12,6 +12,19 @@ All notable changes to this project will be documented in this file.
 
 ### Dependencies
 
+## [2021-08-14]
+
+### Features
+
+- Add support for `@use` and `@forward`
+- Add support for index file (`_index.scss`)
+
+### Dependencies
+
+- Bump glob@^7.1.7
+- Bump lodash@^4.17.21
+- Bump yargs@^17.1.1
+
 ## [3.0.5]
 ### Fixes
 

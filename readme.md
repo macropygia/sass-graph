@@ -8,6 +8,13 @@ Parses Sass files in a directory and exposes a graph of dependencies
 [![Dependency Status](https://david-dm.org/xzyfer/sass-graph.svg?theme=shields.io)](https://david-dm.org/xzyfer/sass-graph)
 [![devDependency Status](https://david-dm.org/xzyfer/sass-graph/dev-status.svg?theme=shields.io)](https://david-dm.org/xzyfer/sass-graph#info=devDependencies)
 
+## Modded
+
+- 2021-08-14までの公式のPRを取り込み
+- `@use` と `@forward` に対応
+    - use対応はPRによるものでテストに対応, forwardは非対応
+- ディレクトリが指定されていた場合は `_index.scss` を探して読み込む
+
 ## Install
 
 Install with [npm](https://npmjs.org/package/sass-graph)
